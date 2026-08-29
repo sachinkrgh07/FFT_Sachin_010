@@ -4,12 +4,16 @@
         <style>
             h1{
                 text-align: center;
+                padding-left: 75px;
             }
             form{
                 border: 1px solid black;
                 width: 500px;
                 margin-left: 400px;
                 padding-right: 100px;
+                background-color: blanchedalmond;
+                border-radius: 15px;
+                box-shadow: 4px 8px 12px;
             }
             label{
                 margin-left: 130px;
@@ -18,6 +22,9 @@
                 width: 200px;
                 height: 40px;
                 margin-left: 37px;
+            }
+            input:hover{
+                border-radius: 10px;
             }
             #i2{
                 width: 200px;
@@ -73,9 +80,29 @@
                 height: 40px;
                 margin-left: 42px;
             }
-            button{
-                margin-left: 160px;
-                margin-bottom: 20px;
+            #b1{
+                margin-left: 200px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                width: 100px;
+                height: 50px;
+                border-radius: 5px;
+                border: none;
+                background-color: greenyellow;
+                
+            }
+            #b1:hover{
+                background-color: yellow;
+            }
+            #b2:hover{
+                background-color: yellow;
+            }
+            #b2{
+                width: 100px;
+                height: 50px;
+                border-radius: 5px;
+                background-color: greenyellow;
+                border: none;
             }
         </style>
     </head>
@@ -83,10 +110,10 @@
         <form>
             <h1>Student Registration Form</h1>
             <label>Reg No.</label>
-            <input type="text" id="i1">
+            <input type="text" id="i1" placeholder="Enter Registration id" required>
             <br><br>
             <label>Student Name</label>
-            <input type="text" id="i2">
+            <input type="text" id="i2" placeholder="Enter Your Name">
             <br><br>
             <label>Gender</label>
             <input type="text" id="i3">
@@ -118,8 +145,8 @@
             <label>Resume</label>
             <input type="file" id="i12">
             <br><br>
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
+            <button type="submit" id="b1">Submit</button>
+            <button type="reset" id="b2">Reset</button>
         </form>
 
     </body>
