@@ -1,153 +1,173 @@
 <html>
-    <head>
-        <title>Student Registration Form</title>
-        <style>
-            h1{
-                text-align: center;
-                padding-left: 75px;
-            }
-            form{
-                border: 1px solid black;
-                width: 500px;
-                margin-left: 400px;
-                padding-right: 100px;
-                background-color: blanchedalmond;
-                border-radius: 15px;
-                box-shadow: 4px 8px 12px;
-            }
-            label{
-                margin-left: 130px;
-            }
-            #i1{
-                width: 200px;
-                height: 40px;
-                margin-left: 37px;
-            }
-            input:hover{
-                border-radius: 10px;
-            }
-            #i2{
-                width: 200px;
-                height: 40px;
-            }
-            #i3{
-                width: 200px;
-                height: 40px;
-                margin-left: 42px;
-            }
-            #i4{
-                width: 200px;
-                height: 40px;
-                margin-left: 55px;
-            }
-            #i5{
-                width: 200px;
-                height: 40px;
-                margin-left: 50px;
-            }
-            #i6{
-                width: 200px;
-                height: 40px;
-                margin-left: 22px;
-            }
-            #i7{
-                width: 200px;
-                height: 40px;
-                margin-left: 15px;
-            }
-            #i8{
-                width: 200px;
-                height: 40px;
-                margin-left: 47px;
-            }
-            #i9{
-                width: 200px;
-                height: 40px;
-                margin-left: 45px;
-            }
-            #i10{
-                width: 200px;
-                height: 40px;
-                margin-left: 43px;
-            }
-            #i11{
-                width: 200px;
-                height: 40px;
-                margin-left: 42px;
-            }
-            #i12{
-                width: 200px;
-                height: 40px;
-                margin-left: 42px;
-            }
-            #b1{
-                margin-left: 200px;
-                margin-right: 10px;
-                margin-bottom: 10px;
-                width: 100px;
-                height: 50px;
-                border-radius: 5px;
-                border: none;
-                background-color: greenyellow;
-                
-            }
-            #b1:hover{
-                background-color: yellow;
-            }
-            #b2:hover{
-                background-color: yellow;
-            }
-            #b2{
-                width: 100px;
-                height: 50px;
-                border-radius: 5px;
-                background-color: greenyellow;
-                border: none;
-            }
-        </style>
-    </head>
-    <body>
-        <form>
-            <h1>Student Registration Form</h1>
-            <label>Reg No.</label>
-            <input type="text" id="i1" placeholder="Enter Registration id" required>
-            <br><br>
-            <label>Student Name</label>
-            <input type="text" id="i2" placeholder="Enter Your Name">
-            <br><br>
-            <label>Gender</label>
-            <input type="text" id="i3">
-            <br><br>
-            <label>DOB</label>
-            <input type="date" id="i4">
-            <br><br>
-            <label>Email</label>
-            <input type="email" id="i5">
-            <br><br>
-            <label>Phone No.</label>
-            <input type="number" id="i6">
-            <br><br>
-            <label>Department</label>
-            <input type="text" id="i7">
-            <br><br>
-            <label>Course</label>
-            <input type="text" id="i8">
-            <br><br>
-            <label>Section</label>
-            <input type="text" id="i9">
-            <br><br>
-            <label>College</label>
-            <input type="text" id="i10">
-            <br><br>
-            <label>Address</label>
-            <input type="text" id="i11">
-            <br><br>
-            <label>Resume</label>
-            <input type="file" id="i12">
-            <br><br>
-            <button type="submit" id="b1">Submit</button>
-            <button type="reset" id="b2">Reset</button>
-        </form>
+<head>
+<title>Student Registration Form</title>
 
-    </body>
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background-color:#e8f5e9;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+form{
+    border:1px solid black;
+    width:500px;
+    margin:30px auto;
+    padding:30px 50px;
+    background-color:blanchedalmond;
+    border-radius:15px;
+    box-shadow:4px 8px 12px gray;
+}
+
+label{
+    display:inline-block;
+    width:130px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+input,select,textarea{
+    width:220px;
+    height:35px;
+    padding:5px;
+    border:1px solid gray;
+    border-radius:5px;
+}
+
+textarea{
+    height:60px;
+    vertical-align:top;
+}
+
+input:hover,select:hover,textarea:hover{
+    border-color:blue;
+}
+
+.gender{
+    width:auto;
+    height:auto;
+}
+
+.gender-label{
+    width:auto;
+    margin-left:5px;
+    margin-right:15px;
+    font-weight:normal;
+}
+
+#b1{
+    margin-left:120px;
+    margin-right:15px;
+    width:100px;
+    height:45px;
+    border-radius:5px;
+    border:none;
+    background-color:greenyellow;
+}
+
+#b2{
+    width:100px;
+    height:45px;
+    border-radius:5px;
+    background-color:greenyellow;
+    border:none;
+}
+
+#b1:hover,#b2:hover{
+    background-color:yellow;
+}
+
+</style>
+</head>
+
+<body>
+
+<form>
+
+<h1>Student Registration Form</h1>
+
+<label>Reg No.</label>
+<input type="text" placeholder="Enter Registration ID" required>
+<br><br>
+
+<label>Student Name</label>
+<input type="text" placeholder="Enter Your Name" required>
+<br><br>
+
+<label>Gender</label>
+<input type="radio" name="gender" class="gender">
+<label class="gender-label">Male</label>
+
+<input type="radio" name="gender" class="gender">
+<label class="gender-label">Female</label>
+<br><br>
+
+<label>DOB</label>
+<input type="date" required>
+<br><br>
+
+<label>Email</label>
+<input type="email" placeholder="Enter Email" required>
+<br><br>
+
+<label>Phone No.</label>
+<input type="tel" placeholder="Enter Phone Number" required>
+<br><br>
+
+<label>Department</label>
+<select required>
+    <option value="">Select Department</option>
+    <option>Computer Science</option>
+    <option>Information Technology</option>
+    <option>Electronics</option>
+    <option>Mechanical</option>
+    <option>Commerce</option>
+    <option>Management</option>
+</select>
+<br><br>
+
+<label>Course</label>
+<select required>
+    <option value="">Select Course</option>
+    <option>BCA</option>
+    <option>BBA</option>
+    <option>B.Tech</option>
+    <option>MCA</option>
+    <option>MBA</option>
+    <option>M.Tech</option>
+</select>
+<br><br>
+
+<label>Section</label>
+<select required>
+    <option value="">Select Section</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+    <option>D</option>
+</select>
+<br><br>
+
+<label>College</label>
+<input type="text" placeholder="Enter College Name" required>
+<br><br>
+
+<label>Address</label>
+<textarea placeholder="Enter Your Address"></textarea>
+<br><br>
+
+<label>Resume</label>
+<input type="file" accept=".pdf,.doc,.docx">
+<br><br>
+
+<button type="submit" id="b1">Submit</button>
+<button type="reset" id="b2">Reset</button>
+
+</form>
+
+</body>
 </html>
