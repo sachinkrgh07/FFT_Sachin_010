@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Krishna Special</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #101b4d, #4b1766);
+            text-align: center;
+            font-family: Arial;
+            color: white;
+        }
+
+        .card {
+            width: 550px;
+            margin: 50px auto;
+            padding: 25px;
+            border: 3px solid gold;
+            border-radius: 20px;
+            background-color: #182653;
+            box-shadow: 0 0 20px gold;
+        }
+
+        h1 {
+            color: gold;
+            animation: zoom 2s infinite alternate;
+        }
+
+        h2 {
+            color: #ffd700;
+            animation: zoom 2s infinite alternate;
+        }
+
+        .line {
+            width: 200px;
+            height: 3px;
+            background-color: gold;
+            margin: 15px auto;
+        }
+
+        .image {
+            height: 280px;
+            position: relative;
+        }
+
+        .circle {
+            width: 240px;
+            height: 240px;
+            border: 3px dashed gold;
+            border-radius: 50%;
+            position: absolute;
+            left: 155px;
+            top: 15px;
+            animation: rotate 5s linear infinite;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            margin-top: 35px;
+            animation: move 3s infinite alternate;
+        }
+
+        .message {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .symbols {
+            font-size: 30px;
+            animation: move 2s infinite alternate;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 30px;
+            animation: move 3s infinite alternate;
+        }
+
+        .f1 {
+            left: 10%;
+            top: 20%;
+        }
+
+        .f2 {
+            right: 10%;
+            top: 25%;
+        }
+
+        .f3 {
+            left: 12%;
+            bottom: 15%;
+        }
+
+        .f4 {
+            right: 12%;
+            bottom: 15%;
+        }
+
+        .star {
+            position: absolute;
+            color: white;
+            font-size: 25px;
+            animation: blink 1s infinite alternate;
+        }
+
+        .s1 { left: 20%; top: 10%; }
+        .s2 { right: 20%; top: 15%; }
+        .s3 { left: 25%; bottom: 15%; }
+        .s4 { right: 25%; bottom: 20%; }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes move {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes blink {
+            from {
+                opacity: 0.2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="star s1">✦</div>
+    <div class="star s2">✧</div>
+    <div class="star s3">✦</div>
+    <div class="star s4">✧</div>
+
+    <div class="flower f1">🌸</div>
+    <div class="flower f2">🪷</div>
+    <div class="flower f3">🌸</div>
+    <div class="flower f4">🪷</div>
+
+    <div class="card">
+
+        <h1>🦚 Krishna Special 🦚</h1>
+
+        <p>Divine Celebration of Lord Krishna</p>
+
+        <div class="line"></div>
+
+        <div class="image">
+            <div class="circle"></div>
+
+            <img src="./pngfind.com-krishna-flute-png-346269.png"
+                 alt="Lord Krishna">
+        </div>
+
+        <h2>💙 Happy Birthday Shree Krishna 💙</h2>
+
+        <p class="message">
+            May Lord Krishna bless you with happiness,
+            peace, love and prosperity. May his blessings
+            always guide you towards success.
+        </p>
+
+        <div class="symbols">
+            🦚 🪈 🪷
+        </div>
+
+        <p>✨ Radhe Radhe • Hare Krishna ✨</p>
+
+    </div>
+
+</body>
+</html>
