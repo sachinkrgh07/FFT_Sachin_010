@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>
+            DOM Example
+        </title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <form>
+             <h1>Login Form</h1>
+            <label > User name:</label>
+            <input type="text" name="uname" id="v1"><br><br>
+             <label > Pasword :</label>
+            <input type="password" name="upwd" id="v2"><br><br>
+            <button type="button" onclick="login()">Login</button>
+            <button type="reset">Reset</button>
+            <p id="result">Result: </p>
+        </form>
+
+        <p id="para">Hello Sachin </p>
+        <button onclick="Btn()">Change</button>
+        <script>
+            function Btn(){
+                // alert("I am function");
+                document.getElementById('para').innerHTML="How are You!!";
+
+            };
+
+            function login(){
+                let uname = document.getElementById('v1').value;
+                let upwd = document.getElementById('v2').value;
+                if(uname=="sachin" && upwd == "123"){
+                    document.getElementById('result').innerHTML = "Login Successfull";
+                    result.style.color = "green";
+                    
+                }
+                else{
+                    document.getElementById('result').innerHTML = "Login fail";
+                    result.style.color = "red";
+                }
+            };
+        </script>
+    </body>
+</html>
