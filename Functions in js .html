@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    <script>
+        //global scope
+        let a =20;
+        let b =30;
+
+
+        // normal function
+        function sum(){
+            //local scope
+            let a =20;
+            let b =30;
+            document.write("sum of:"+(a+b));
+        };
+        sum();
+        
+        //Parameters function
+        function sum(a,b){
+            document.write("sum of:"+(a+b));
+        };
+        sum(10,50);
+
+       //Parameters with arguments function
+        function sum(a=100,b=200){
+            document.write("sum of:"+(a+b));
+        };
+        sum();
+
+
+
+        //Arrow Function
+
+        let add = (a=100,b=500)=>{
+            document.write("sum of:"+(a+b));
+
+        };
+
+        add();
+    </script>
+</body>
+</html>

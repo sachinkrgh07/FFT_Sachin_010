@@ -1,0 +1,352 @@
+<html>
+
+<head>
+    <title>Sachin Portfolio</title>
+</head>
+
+<style>
+body {
+    font-family: Arial;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 120px;
+}
+
+header {
+    background-color: aqua;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 5px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: red;
+}
+
+section {
+    scroll-margin-top: 120px;
+}
+
+#home {
+    background-color: bisque;
+    padding: 50px;
+    text-align: center;
+    min-height: 200px;
+}
+
+#home h2 {
+    color: red;
+}
+
+#home p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#about {
+    background-color: white;
+    padding: 50px;
+    text-align: center;
+    min-height: 400px;
+}
+
+.aboutgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.aboutbox {
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+#skills {
+    background-color: rgb(47, 129, 244);
+    padding: 50px;
+    text-align: center;
+    min-height: 400px;
+}
+
+.skillsgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.skill {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.skill:hover {
+    background-color: black;
+    color: white;
+}
+
+#projects {
+    background-color: #eeeeee;
+    padding: 50px;
+    text-align: center;
+    min-height: 500px;
+}
+
+.projectsgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.project {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px gray;
+}
+
+.project h3 {
+    color: red;
+}
+
+#contact {
+    background-color: bisque;
+    padding: 50px;
+    text-align: center;
+    min-height: 450px;
+}
+
+input,
+textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 8px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+}
+
+button:hover {
+    background-color: red;
+}
+
+
+nav {
+        grid-template-columns: repeat(5, 1fr);
+    }
+</style>
+
+<body>
+
+<header>
+
+    <h1>Sachin Portfolio</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+<section id="home">
+
+    <h2>Hello, I'm Sachin Kumar</h2>
+
+    <p>
+        I am a computer science student interested in
+        Generative AI, Artificial Intelligence and
+        Software Development.
+    </p>
+
+    <p>
+        Currently, I am pursuing MCA in Generative AI
+        at Alliance University, Bengaluru.
+    </p>
+
+</section>
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="aboutgrid">
+
+        <div class="aboutbox">
+
+            <h3>Education</h3>
+
+            <p>BCA - Marwari College</p>
+
+            <p>CGPA: 8.29</p>
+
+        </div>
+
+        <div class="aboutbox">
+
+            <h3>Currently</h3>
+
+            <p>MCA - Generative AI</p>
+
+            <p>Alliance University, Bengaluru</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skillsgrid">
+
+        <div class="skill">Python</div>
+        <div class="skill">Java</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">SQL</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">Generative AI</div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="projectsgrid">
+
+        <div class="project">
+
+            <h3>AI CV Analyzer</h3>
+
+            <p>
+                An AI application that checks resumes
+                and gives useful suggestions.
+            </p>
+
+            <p>
+                <b>Python, Streamlit, AI, MySQL</b>
+            </p>
+
+        </div>
+
+        <div class="project">
+
+            <h3>Face Recognizer</h3>
+
+            <p>
+                A face recognition application using
+                Python and OpenCV.
+            </p>
+
+            <p>
+                <b>Python, OpenCV, NumPy</b>
+            </p>
+
+        </div>
+
+        <div class="project">
+
+            <h3>Water Bottle Label Booking</h3>
+
+            <p>
+                A website for booking customized
+                water bottle labels.
+            </p>
+
+            <p>
+                <b>HTML, CSS, JavaScript</b>
+            </p>
+
+        </div>
+
+        <div class="project">
+
+            <h3>Rental Car Booking</h3>
+
+            <p>
+                A website for checking cars and
+                making booking requests.
+            </p>
+
+            <p>
+                <b>HTML, CSS, JavaScript</b>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <h3>My Details</h3>
+
+    <p>Ranchi, Jharkhand</p>
+
+    <p>samaahgupta@gmail.com</p>
+
+    <h3>Send Message</h3>
+
+    <form>
+
+        <input type="text" placeholder="Enter Name">
+
+        <input type="email" placeholder="Enter Email">
+
+        <textarea rows="4" placeholder="Enter Message"></textarea>
+
+        <br>
+
+        <button>Send</button>
+
+    </form>
+
+</section>
+
+</body>
+
+</html>

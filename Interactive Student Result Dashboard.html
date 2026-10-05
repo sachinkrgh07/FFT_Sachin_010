@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Student Result Dashboard</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --success: #10b981;
+            --danger: #ef4444;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Summary Stats Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Main Workspace split layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            height: fit-content;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Forms styling */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Search and Filtering controls */
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .controls input {
+            flex: 2;
+        }
+
+        .controls select {
+            flex: 1;
+        }
+
+        /* Dynamic Table styling */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.85rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .badge-pass { background: #d1fae5; color: var(--success); }
+        .badge-fail { background: #fee2e2; color: var(--danger); }
+
+        .nested-marks {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Student Result Dashboard</h1>
+        <p>Manage, analyze, and display academic records seamlessly.</p>
+    </header>
+
+    <!-- Performance Summary Block -->
+    <div class="summary-grid">
+        <div class="stat-card">
+            <h3>Total Students</h3>
+            <p id="total-students">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Class Average</h3>
+            <p id="class-average">0%</p>
+        </div>
+        <div class="stat-card">
+            <h3>Passing Rate</h3>
+            <p id="pass-rate">0%</p>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        <!-- Input section -->
+        <div class="card">
+            <h2>Add Student Entry</h2>
+            <form id="student-form">
+                <div class="form-group">
+                    <label for="student-id">Student ID</label>
+                    <input type="text" id="student-id" required placeholder="e.g., STU001">
+                </div>
+                <div class="form-group">
+                    <label for="student-name">Full Name</label>
+                    <input type="text" id="student-name" required placeholder="e.g., Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="marks-math">Mathematics Marks (0-100)</label>
+                    <input type="number" id="marks-math" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="marks-science">Science Marks (0-100)</label>
+                    <input type="number" id="marks-science" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="marks-english">English Marks (0-100)</label>
+                    <input type="number" id="marks-english" min="0" max="100" required>
+                </div>
+                <button type="submit">Submit Record</button>
+            </form>
+        </div>
+
+        <!-- Dashboard view / Tables, Search and filtering section -->
+        <div class="card">
+            <h2>Academic Ledger</h2>
+            
+            <div class="controls">
+                <input type="text" id="search-bar" placeholder="Search by name or ID...">
+                <select id="filter-status">
+                    <option value="all">All Results</option>
+                    <option value="pass">Passed</option>
+                    <option value="fail">Failed</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Subject Breakdowns</th>
+                            <th>Total (Avg)</th>
+                            <th>Percentage</th>
+                            <th>Grade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ledger-body">
+                        <!-- Dynamic content loaded via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initial Seed Data
+    let students = [
+        { id: "STU101", name: "Alex Mercer", subjects: { Math: 85, Science: 90, English: 78 } },
+        { id: "STU102", name: "Sarah Connor", subjects: { Math: 45, Science: 52, English: 40 } },
+        { id: "STU103", name: "Bruce Wayne", subjects: { Math: 95, Science: 98, English: 92 } }
+    ];
+
+    const studentForm = document.getElementById('student-form');
+    const searchBar = document.getElementById('search-bar');
+    const filterStatus = document.getElementById('filter-status');
+    const ledgerBody = document.getElementById('ledger-body');
+
+    // Formula elements to compute Grade and Status
+    function computeMetrics(subjects) {
+        const total = subjects.Math + subjects.Science + subjects.English;
+        const avg = (total / 3).toFixed(1);
+        const pct = parseFloat(avg);
+        
+        let grade = 'F';
+        if (pct >= 90) grade = 'A+';
+        else if (pct >= 80) grade = 'A';
+        else if (pct >= 70) grade = 'B';
+        else if (pct >= 60) grade = 'C';
+        else if (pct >= 50) grade = 'D';
+
+        // Check if student passed every individual subject (passing marks threshold: 50)
+        const passedAll = subjects.Math >= 50 && subjects.Science >= 50 && subjects.English >= 50;
+        const status = passedAll ? 'Pass' : 'Fail';
+
+        return { total, avg, pct, grade, status };
+    }
+
+    // Refresh dashboard visuals and calculations
+    function updateDashboard() {
+        const query = searchBar.value.toLowerCase();
+        const statusFilter = filterStatus.value;
+        
+        ledgerBody.innerHTML = '';
+        
+        let totalPctSum = 0;
+        let passCount = 0;
+        let visibleCount = 0;
+
+        students.forEach(student => {

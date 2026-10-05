@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="n1" id="i1"><br><br>
+    <input type="number" name="n2" id="i2"><br><br>
+    <button onclick="check()">Add</button>
+    <p id="para">Result:</p>
+
+
+
+    
+    <script>
+        function check(){
+
+            let n1 = Number(document.getElementById('i1').value);
+            let n2 = Number(document.getElementById('i2').value);
+            let sum = n1+n2
+            document.getElementById('para').innerHTML="Result:"+sum;
+
+        }
+    </script>
+</body>
+</html>
